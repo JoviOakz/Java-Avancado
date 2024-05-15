@@ -13,26 +13,15 @@ import Files.NewTask;
 public class Main {
     public static void main(String[] args) {
         JFrame frame = new JFrame();
-        NewTask newFrame = new NewTask(frame);
+        JPanel mainPanel = new JPanel();
+        NewTask newFrame = new NewTask(frame, mainPanel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         JLabel lbTitle = new JLabel();
         lbTitle.setText("Lista de Tarefas:");
 
-        JLabel lbList = new JLabel();
-        if (newFrame.getTask(0) == null || newFrame.getTask(0) == "") {
-            lbList.setText("");
-        } else {
-            for (int i = 0; i < newFrame.getSizeTask(); i++) {
-                
-            }
-        }
-
         JPanel pnList = new JPanel(new FlowLayout(FlowLayout.CENTER, 5, 5));
         pnList.add(lbTitle);
-        pnList.add(lbList);
-
-        pnList.setLayout(new BoxLayout(pnList, BoxLayout.Y_AXIS));
 
         JButton btNewTask = new JButton("Add Task");
         btNewTask.addActionListener(new ActionListener() {
@@ -46,10 +35,9 @@ public class Main {
         JPanel pnButton = new JPanel(new FlowLayout(FlowLayout.CENTER, 5, 5));
         pnButton.add(btNewTask);
 
-        JPanel mainPanel = new JPanel();
         mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
-        mainPanel.add(pnList);
         mainPanel.add(pnButton);
+        mainPanel.add(pnList);
 
         frame.add(mainPanel);
         frame.pack();

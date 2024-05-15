@@ -1,23 +1,29 @@
 package Files;
 
-import java.util.ArrayList;
-
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JList;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 
 public class NewTask extends JFrame {
     private ArrayList<String> tasks = new ArrayList<>();
+    JList<String> lList;
+    JScrollPane scpList;
 
-    public NewTask(JFrame frame) {
+
+    public NewTask(JFrame frame, JPanel mainPanel) {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        scpList = new JScrollPane(lList);
 
         JLabel lbAddTask = new JLabel();
         lbAddTask.setText("Digite a tarefa que deseja adicionar:");
@@ -35,7 +41,7 @@ public class NewTask extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 setTask(tfAddTask.getText());
 
-                // Criar função para atualizar o Main e aparecer a lista de tarefas completa toda vez que apertar esse botão.
+                mainPanel.add(scpList);
 
                 self.setVisible(false);
                 frame.setVisible(true);
@@ -52,18 +58,11 @@ public class NewTask extends JFrame {
 
         this.add(newTaskPanel);
         this.pack();
-        this.setVisible(true);
-    }
-
-    public String getTask(int index) {
-        return tasks.get(index);
     }
     
     public void setTask(String newTask) {
         tasks.add(newTask);
-    }
-
-    public int getSizeTask() {
-        return tasks.size();
+        lList = new JList<>(tasks.toArray(new String[0]));
+        scpList.setViewportView(lList);
     }
 }
