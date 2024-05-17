@@ -26,12 +26,12 @@ public class Mass extends JComponent {
         System.out.println("Velocidade y:");
         System.out.println(Math.abs(this.velY));
 
-        System.out.println("Posição y:");
+        System.out.println("Posicao y:");
         System.out.println(this.posY);
 
-        if (this.velY <= 5f && this.velY > 0 && this.posY >= 530) {
-            this.velY = 0f;
-            this.posY = 540f;
+        if (this.velY <= 6 && this.velY > 0 && this.posY >= 536) {
+            this.velY = 0;
+            this.posY = 540;
             stop = true;
             return;
         }
@@ -48,10 +48,6 @@ public class Mass extends JComponent {
 
             this.posY = 540; // Corrigir a posição para não passar do chão
             this.velY = -this.velY * coefRestituicao; // Inverter a velocidade e aplicar a perda de energia
-        }
-        // Se a velocidade vertical é muito pequena e a bola está no chão, parar a bola
-        if (Math.abs(this.velY) < 0.8 && this.posY >= 530) {
-            this.velY = 0;
         }
     }
 }
