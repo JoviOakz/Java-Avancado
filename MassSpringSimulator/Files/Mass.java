@@ -6,13 +6,13 @@ import java.awt.Color;
 import java.awt.Graphics;
 
 public class Mass extends JComponent {
-    private float posX = 290f;
-    private float posY = 0f;
-    private float velX = 0f;
-    private float velY = 0f;
-    private float massa = 10f;
-    private float gravidade = 9.8f;
-    private float aceleracao = 0f;
+    private double posX = 290;
+    private double posY = 0;
+    private double velX = 0;
+    private double velY = 0;
+    private double massa = 10;
+    private double gravidade = 9.8;
+    private double aceleracao = 0;
 
     @Override
     protected void paintComponent(Graphics g) {
@@ -21,12 +21,11 @@ public class Mass extends JComponent {
     }
 
     public void bounce() {
-        if (posY >= 540) {
+        if (posY > 540) {
             velY = 0;
-            return;
         } else {
-            velY = (int)Math.sqrt(2 * gravidade * 600-posY);
-            posY += velY * 0.025f;
+            velY = Math.sqrt(2 * gravidade * 600-posY);
+            posY += (int)(velY * 0.025);
         }
     }
 }

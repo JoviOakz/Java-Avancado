@@ -16,7 +16,6 @@ public class Main {
         Timer timer = new Timer(25, e -> {
             frame.repaint();
 
-
             bola.bounce();
         });
         timer.start();
