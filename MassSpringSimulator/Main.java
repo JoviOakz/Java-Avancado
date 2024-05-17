@@ -13,7 +13,7 @@ public class Main {
 
         Mass bola = new Mass();
 
-        Timer timer = new Timer(25, e -> {
+        Timer timer = new Timer(10, e -> {
             frame.repaint();
 
             bola.bounce();
