@@ -26,7 +26,7 @@ public class Screen extends JPanel {
             }
         }
 
-        setBackground(Color.white);
+        setBackground(Color.pink);
 
         this.springs = new ArrayList<>();
         double restLength = 100;

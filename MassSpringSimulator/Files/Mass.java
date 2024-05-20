@@ -33,7 +33,7 @@ public class Mass {
     }
 
     protected void draw(Graphics g) {
-        g.setColor(Color.magenta);
+        g.setColor(Color.black);
         g.fillOval((int) posX, (int) posY, 20, 20);
     }
 
