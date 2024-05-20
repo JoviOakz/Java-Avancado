@@ -6,14 +6,19 @@ import java.awt.Color;
 import java.awt.Graphics;
 
 public class Mass extends JComponent {
-    private double posX = 290;
-    private double posY = 11;
+    private double posX;
+    private double posY;
     private double velX = 0;
     private double velY = 0;
     private double massa = 10;
     private double gravidade = 9.8;
     private double coefRestituicao = 0.7;
     private boolean stop = false;
+
+    public Mass(int posX, int posY) {
+        this.posX = (double)posX;
+        this.posY = (double)posY;
+    }
 
     @Override
     protected void paintComponent(Graphics g) {
